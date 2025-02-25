@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { HiMinusSm } from "react-icons/hi";
 import { HiOutlinePlusSm } from "react-icons/hi";
 import { toast } from "sonner";
+import ProductGrid from "./ProductGrid";
 
 const selectedProduct = {
   name: "Stylish Jacket",
@@ -23,6 +24,77 @@ const selectedProduct = {
     },
   ],
 };
+
+const similarProducts = [
+  {
+    _id: 1,
+    name: "Stylish T-Shirt",
+    price: 80,
+    // originalPrice: 100,
+    // description: "A stylish t-shirt for men in casual purpose.",
+    // brand: "ZARA",
+    // material: "Cotton",
+    // sizes: ["S", "M", "L", "XL"],
+    // colors: ["Black", "White", "Red"],
+    images: [
+      {
+        url: "https://picsum.photos/500/500?random=3",
+        altText: "Stylish T-Shirt 1",
+      },
+    ],
+  },
+  {
+    _id: 2,
+    name: "Stylish Jacket",
+    price: 180,
+    // originalPrice: 100,
+    // description: "A stylish t-shirt for men in casual purpose.",
+    // brand: "ZARA",
+    // material: "Cotton",
+    // sizes: ["S", "M", "L", "XL"],
+    // colors: ["Black", "White", "Red"],
+    images: [
+      {
+        url: "https://picsum.photos/500/500?random=4",
+        altText: "Stylish Jacket",
+      },
+    ],
+  },
+  {
+    _id: 3,
+    name: "Party Blazer",
+    price: 210,
+    // originalPrice: 100,
+    // description: "A stylish t-shirt for men in casual purpose.",
+    // brand: "ZARA",
+    // material: "Cotton",
+    // sizes: ["S", "M", "L", "XL"],
+    // colors: ["Black", "White", "Red"],
+    images: [
+      {
+        url: "https://picsum.photos/500/500?random=5",
+        altText: "Party Blazer",
+      },
+    ],
+  },
+  {
+    _id: 4,
+    name: "Beach Shirt",
+    price: 50,
+    // originalPrice: 100,
+    // description: "A stylish t-shirt for men in casual purpose.",
+    // brand: "ZARA",
+    // material: "Cotton",
+    // sizes: ["S", "M", "L", "XL"],
+    // colors: ["Black", "White", "Red"],
+    images: [
+      {
+        url: "https://picsum.photos/500/500?random=6",
+        altText: "Beach Shirt",
+      },
+    ],
+  },
+];
 
 const ProductDetails = () => {
   const [mainImage, setMainImage] = useState();
@@ -117,21 +189,26 @@ const ProductDetails = () => {
           </div>
           {/* Right Side */}
           <div className="md:w-1/2 md:ml-10">
+            {/* Heading */}
             <h1 className="text-2xl md:text-3xl font-semibold mb-2">
               {selectedProduct.name}
             </h1>
             {/* <div className="flex flex-col md:flex-row md:gap-20"> */}
+            {/* Discounted Price */}
             <p className="text-lg text-gray-600 mb-1 line-through">
               {selectedProduct.originalPrice &&
                 `$ ${selectedProduct.originalPrice}`}
             </p>
+            {/* Original Price */}
             <p className="text-lg text-gray-500 mb-2">
               $ {selectedProduct.price}
             </p>
             {/* </div> */}
+            {/* Description */}
             <p className="text-lg text-gray-600 mb-4">
               {selectedProduct.description}
             </p>
+            {/* Colors */}
             <div className="mb-4">
               <p className="text-gray-700">Color:</p>
               <div className="flex gap-2 mt-2">
@@ -152,6 +229,7 @@ const ProductDetails = () => {
                 ))}
               </div>
             </div>
+            {/* Sizes */}
             <div className="mb-4">
               <p className="text-gray-700">Size:</p>
               <div className="flex gap-2 mt-2">
@@ -168,6 +246,7 @@ const ProductDetails = () => {
                 ))}
               </div>
             </div>
+            {/* Increment , Decrement buttons and quantity */}
             <div className="mb-6">
               <p className="text-gray-700 mb-2">Quantity:</p>
               <div className="flex items-center space-x-4 mb-2">
@@ -186,13 +265,19 @@ const ProductDetails = () => {
                 </button>
               </div>
             </div>
+            {/* Add to cart */}
             <button
               onClick={handleAddTocart}
-              disabled = {isButtonDisabled}
-              className={`bg-black text-white py-2 px-6 rounded w-full mb-4  ${isButtonDisabled ? "bg-black/40 cursor-not-allowed" : "hover:bg-black/80"}`}
+              disabled={isButtonDisabled}
+              className={`bg-black text-white py-2 px-6 rounded w-full mb-4  ${
+                isButtonDisabled
+                  ? "bg-black/40 cursor-not-allowed"
+                  : "hover:bg-black/80"
+              }`}
             >
               {isButtonDisabled ? "Adding..." : "ADD TO CART"}
             </button>
+            {/* Characterstics--> Material, Brand etc */}
             <div className="mt-10 text-gray-700">
               <h3 className="text-xl font-bold mb-4">Characterstics:</h3>
               <table className="w-full text-left text-sm text-gray-600">
@@ -209,6 +294,12 @@ const ProductDetails = () => {
               </table>
             </div>
           </div>
+        </div>
+        <div className="mt-20">
+          <h2 className="text-2xl text-center font-medium mb-4">
+            You May Also Like
+          </h2>
+          <ProductGrid products={similarProducts} />
         </div>
       </div>
     </div>
