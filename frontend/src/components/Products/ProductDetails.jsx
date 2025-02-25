@@ -112,16 +112,25 @@ const ProductDetails = () => {
     if (!selectedSize && !selectedColor) {
       toast.error("Please select a size and colour before adding to cart.", {
         duration: 1000,
+        style: {
+            background: 'red',
+          },
       });
       return;
     } else if (!selectedSize) {
       toast.error("Please select a size before adding to cart.", {
         duration: 1000,
+        style: {
+            background: 'lightyellow',
+          },
       });
       return;
     } else if (!selectedColor) {
       toast.error("Please select a colour before adding to cart.", {
         duration: 1000,
+        style: {
+            background: 'lightyellow',
+          },
       });
       return;
     }
@@ -130,6 +139,9 @@ const ProductDetails = () => {
     setTimeout(() => {
       toast.success("Product added to cart", {
         duration: 1000,
+        style: {
+            background: 'lightgreen',
+          },
       });
       setIsButtonDisabled(false);
     }, 500);
