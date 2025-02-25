@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { HiMinusSm } from "react-icons/hi";
 import { HiOutlinePlusSm } from "react-icons/hi";
+import { toast } from "sonner";
 
 const selectedProduct = {
   name: "Stylish Jacket",
@@ -24,17 +25,43 @@ const selectedProduct = {
 };
 
 const ProductDetails = () => {
-  const [mainImage, setMainImage] = useState("");
+  const [mainImage, setMainImage] = useState();
   const [selectedSize, setSelectedSize] = useState("");
   const [selectedColor, setSelectedColor] = useState("");
   const [quantity, setQuantity] = useState(1);
   const [isButtonDisabled, setIsButtonDisabled] = useState(false);
 
-  const handleQuantityChange = (action) =>{
-    if(action === "plus") setQuantity((prev)=> prev + 1);
-    if(action === "minus" && quantity>1) setQuantity((prev)=> prev - 1);
-    
-  }
+  const handleQuantityChange = (action) => {
+    if (action === "plus") setQuantity((prev) => prev + 1);
+    if (action === "minus" && quantity > 1) setQuantity((prev) => prev - 1);
+  };
+
+  const handleAddTocart = () => {
+    if (!selectedSize && !selectedColor) {
+      toast.error("Please select a size and colour before adding to cart.", {
+        duration: 1000,
+      });
+      return;
+    } else if (!selectedSize) {
+      toast.error("Please select a size before adding to cart.", {
+        duration: 1000,
+      });
+      return;
+    } else if (!selectedColor) {
+      toast.error("Please select a colour before adding to cart.", {
+        duration: 1000,
+      });
+      return;
+    }
+    setIsButtonDisabled(true);
+
+    setTimeout(() => {
+      toast.success("Product added to cart", {
+        duration: 1000,
+      });
+      setIsButtonDisabled(false);
+    }, 500);
+  };
 
   useEffect(() => {
     if (selectedProduct?.images?.length > 0) {
@@ -112,7 +139,11 @@ const ProductDetails = () => {
                   <button
                     onClick={() => setSelectedColor(color)}
                     key={color}
-                    className={`w-8 h-8 rounded-full border cursor-pointer ${selectedColor === color ? "border-4 border-black" : "border-gray-300"}`}
+                    className={`w-8 h-8 rounded-full border cursor-pointer ${
+                      selectedColor === color
+                        ? "border-4 border-black"
+                        : "border-gray-300"
+                    }`}
                     style={{
                       backgroundColor: color.toLocaleLowerCase(),
                       filter: "brightness(0.7)",
@@ -127,7 +158,9 @@ const ProductDetails = () => {
                 {selectedProduct.sizes.map((size) => (
                   <button
                     key={size}
-                    className={`px-4 py-2 rounded border cursor-pointer hover:bg-black/80 hover:text-white transition-all ${selectedSize === size ? "bg-black text-white" : ""}`}
+                    className={`px-4 py-2 rounded border cursor-pointer hover:bg-black/80 hover:text-white transition-all ${
+                      selectedSize === size ? "bg-black text-white" : ""
+                    }`}
                     onClick={() => setSelectedSize(size)}
                   >
                     {size}
@@ -138,17 +171,27 @@ const ProductDetails = () => {
             <div className="mb-6">
               <p className="text-gray-700 mb-2">Quantity:</p>
               <div className="flex items-center space-x-4 mb-2">
-                <button onClick={()=> handleQuantityChange("minus")} className="p-3 bg-black/80 text-white rounded text-lg hover:bg-black">
+                <button
+                  onClick={() => handleQuantityChange("minus")}
+                  className="p-3 bg-black/80 text-white rounded text-lg hover:bg-black"
+                >
                   <HiMinusSm />
                 </button>
                 <span className="text-lg font-bold">{quantity}</span>
-                <button onClick={()=> handleQuantityChange("plus")} className="p-3 bg-black/80 text-white rounded text-lg hover:bg-black">
+                <button
+                  onClick={() => handleQuantityChange("plus")}
+                  className="p-3 bg-black/80 text-white rounded text-lg hover:bg-black"
+                >
                   <HiOutlinePlusSm />
                 </button>
               </div>
             </div>
-            <button className="bg-black text-white py-2 px-6 rounded w-full mb-4 hover:bg-black/80">
-              ADD TO CART
+            <button
+              onClick={handleAddTocart}
+              disabled = {isButtonDisabled}
+              className={`bg-black text-white py-2 px-6 rounded w-full mb-4  ${isButtonDisabled ? "bg-black/40 cursor-not-allowed" : "hover:bg-black/80"}`}
+            >
+              {isButtonDisabled ? "Adding..." : "ADD TO CART"}
             </button>
             <div className="mt-10 text-gray-700">
               <h3 className="text-xl font-bold mb-4">Characterstics:</h3>
