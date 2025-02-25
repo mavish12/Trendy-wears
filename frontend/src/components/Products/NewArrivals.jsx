@@ -49,7 +49,7 @@ const NewArrivals = () => {
   };
 
   return (
-    <section className="relative">
+    <section className="relative py-16 px-4 lg:px-0">
       <div className="container mx-auto text-center mb-10">
         <h2 className="text-3xl font-bold mb-4">Explore New Arrivals</h2>
         <p className="text-lg text-gray-600 mb-20 lg:mb-14 md:mb-16">
