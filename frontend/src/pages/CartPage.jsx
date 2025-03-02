@@ -1,8 +1,16 @@
 import React from "react";
 import SearchBar from "../components/Common/SearchBar";
 import CartContents from "../components/Cart/CartContents";
+import { useNavigate } from "react-router-dom";
 
 const CartPage = () => {
+
+    const navigate = useNavigate();
+    const handleCheckout = () =>{
+        navigate('/checkout');
+        console.log("Checkout button clicked");
+    }
+
   return (
     <div className="flex flex-col min-h-screen">
       {/* Header with ONLY SearchBar */}
@@ -22,7 +30,7 @@ const CartPage = () => {
           </div>
           {/* Checkout Section */}
           <div className="p-4 bg-white border-t">
-            <button className="w-full bg-black text-white py-3 rounded font-semibold hover:bg-gray-800 transition">
+            <button onClick={handleCheckout} className="w-full bg-black text-white py-3 rounded font-semibold hover:bg-gray-800 transition">
               Checkout
             </button>
             <p className="text-sm tracking-tighter text-gray-500 mt-2 text-center">

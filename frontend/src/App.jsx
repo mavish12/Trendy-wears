@@ -10,6 +10,7 @@ import Profile from "./pages/Profile";
 import CollectionPage from "./pages/CollectionPage";
 import ProductDetails from "./components/Products/ProductDetails";
 import CartPage from "./pages/CartPage";
+import Checkout from "./components/Cart/Checkout";
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
           <Route path="profile" element={<Profile/>}/>
           <Route path="collections/:collection" element={<CollectionPage/>} />
           <Route path="product/:id" element={<ProductDetails/>}/>
+          <Route path="checkout" element={<Checkout/>}/>
         </Route>
         <Route>{/* Admin Layout */}</Route>
       </Routes>
