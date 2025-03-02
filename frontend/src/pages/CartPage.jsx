@@ -6,11 +6,11 @@ const CartPage = () => {
   return (
     <div className="flex flex-col min-h-screen">
       {/* Header with ONLY SearchBar */}
-      <header className="shadow-md p-4 bg-white">
+      {/* <header className="shadow-md p-4 bg-white">
         <div className="container mx-auto flex justify-center">
           <SearchBar />
         </div>
-      </header>
+      </header> */}
 
       {/* Main Cart Content */}
       <main className="flex-grow flex justify-center items-center p-4">
@@ -20,7 +20,6 @@ const CartPage = () => {
             <h2 className="text-xl font-semibold mb-4">Your Cart</h2>
             <CartContents />
           </div>
-
           {/* Checkout Section */}
           <div className="p-4 bg-white border-t">
             <button className="w-full bg-black text-white py-3 rounded font-semibold hover:bg-gray-800 transition">

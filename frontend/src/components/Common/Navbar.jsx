@@ -11,7 +11,7 @@ const Navbar = () => {
   const location = useLocation();
   const isCartPage = location.pathname === "/cart"; // Check if it's the cart page
 
-  const [drawerOpen, setDrawerOpen] = useState(false);
+  // const [drawerOpen, setDrawerOpen] = useState(false);
   const [navDrawerOpen, setNavDrawerOpen] = useState(false);
 
   // const toggleCartDrawer = () => {
@@ -30,7 +30,7 @@ const Navbar = () => {
           INYLE
         </Link>
 
-        {/* Only show SearchBar on Cart Page */}
+        {/*Doing conditional rendering for showing the search bar and nothing else in the cart page nav */}
         {isCartPage ? (
           <SearchBar />
         ) : (
@@ -42,6 +42,9 @@ const Navbar = () => {
               </Link>
               <Link to="#" className="text-gray-700 hover:text-black text-sm font-medium uppercase">
                 Women
+              </Link>
+              <Link to="#" className="text-gray-700 hover:text-black text-sm font-medium uppercase">
+                Kids
               </Link>
               <Link to="#" className="text-gray-700 hover:text-black text-sm font-medium uppercase">
                 Top Wear
@@ -95,6 +98,9 @@ const Navbar = () => {
               </Link>
               <Link to="#" onClick={toggleNavDrawer} className="block text-gray-700 hover:text-black font-medium uppercase">
                 Women
+              </Link>
+              <Link to="#" onClick={toggleNavDrawer} className="block text-gray-700 hover:text-black font-medium uppercase">
+                Kids
               </Link>
               <Link to="#" onClick={toggleNavDrawer} className="block text-gray-700 hover:text-black font-medium uppercase">
                 Top Wear
