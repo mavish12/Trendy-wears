@@ -116,6 +116,14 @@ const FilterSidebar = () => {
     navigate(`?${params.toString()}`) //?category=Bottom+Wear&size=XS%2CS
   }
 
+  const handlePriceChange = (e) =>{
+    const newPrice = e.target.value;
+    setPriceRange([0, newPrice])
+    const newFilters = {...filters, minPrice:0, maxPrice:newPrice}
+    setFilters(filters)
+    updateUrlParams(newFilters)
+  }
+
   return (
     <div className="p-4">
       <h3 className="text-xl font-medium text-gray-800 mb-4">Filter</h3>
@@ -146,6 +154,7 @@ const FilterSidebar = () => {
               name="gender"
               value={gender}
               onChange={handleFilterChange}
+              checked={filters.gender === gender}
               className="mr-2 h-4 w-4 text-blue-500 focus:ring-blue-400 border-gray-300"
             />
             <span className="text-gray-700">{gender}</span>
@@ -180,7 +189,7 @@ const FilterSidebar = () => {
               type="checkbox"
               name="size"
               value={size}
-              checked={filters.size === size}
+              checked={filters.size.includes(size)}
               onChange={handleFilterChange}
               className="mr-2 h-4 w-4 text-blue-500 focus:ring-blue-500 border-gray-300"
             />
@@ -198,7 +207,7 @@ const FilterSidebar = () => {
               type="checkbox"
               name="material"
               value={material}
-              checked={filters.material === material}
+              checked={filters.material.includes(material)}
               onChange={handleFilterChange}
               className="mr-2 h-4 w-4 text-blue-500 focus:ring-blue-500 border-gray-300"
             />
@@ -216,7 +225,7 @@ const FilterSidebar = () => {
               type="checkbox"
               name="brand"
               value={brand}
-              checked={filters.brand === brand}
+              checked={filters.brand.includes(brand)}
               onChange={handleFilterChange}
               className="mr-2 h-4 w-4 text-blue-500 focus:ring-blue-500 border-gray-300"
             />
@@ -235,6 +244,8 @@ const FilterSidebar = () => {
           name="priceRange"
           min={0}
           max={100}
+          value={priceRange[1]}
+          onChange={handlePriceChange}
           className="w-full h-2 bg-gray-300 rounded-lg appearance-none cursor-pointer"
         />
         <div className="flex justify-between text-gray-600 mt-2">
