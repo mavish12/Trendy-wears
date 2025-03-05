@@ -13,7 +13,7 @@ const PaypalButton = ({amount, onSuccess, onError}) => {
         style={{ layout: "vertical" }}
         createOrder={(data, actions) => {
           return actions.order.create({
-            purchase_units: [{ amount: { value: amount.toString(), currency_code: "USD" } }],
+            purchase_units: [{ amount: { value: amount.toString(), currency_code: "USD" } }]
           });
         }}
         onApprove={(data, actions) =>{
