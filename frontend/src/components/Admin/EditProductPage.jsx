@@ -44,16 +44,11 @@ const EditProductPage = () => {
     <div className='w-full mx-auto p-6 shadow-md rounded-md'>
         <h2 className="text-3xl font-bold mb-6">Edit Product</h2>
         <form onSubmit={handleProductEditSubmit}>
-            {/* Name */}
+            <div className='grid grid-cols-2 gap-x-4'>
+                {/* Name */}
             <div className="mb-6">
                 <label className='block font-semibold mb-2'>Product Name</label>
                 <input type="text" name='name' value={productData.name} onChange={handleEditChange} className='w-full border border-gray-300 rounded p-2' required/>
-            </div>
-            
-            {/* Description */}
-            <div className="mb-6">
-                <label className='block font-semibold mb-2'>Description</label>
-                <textarea type="text" name='description' value={productData.description} onChange={handleEditChange} rows={4} className='w-full border border-gray-300 rounded p-2' required/>
             </div>
             
             {/* Price */}
@@ -88,6 +83,13 @@ const EditProductPage = () => {
                 <input type="text" name='colors' value={productData.colors.join(", ")} onChange={(e) => setProductData({
                     ...productData, colors: e.target.value.split(",").map((color) => color.trim())
                 })} className='w-full border border-gray-300 rounded p-2'/>
+            </div>
+            </div>
+
+            {/* Description */}
+            <div className="mb-6">
+                <label className='block font-semibold mb-2'>Description</label>
+                <textarea type="text" name='description' value={productData.description} onChange={handleEditChange} rows={4} className='w-full border border-gray-300 rounded p-2' required/>
             </div>
 
             {/* Image Upload */}
