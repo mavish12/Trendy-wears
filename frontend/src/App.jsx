@@ -20,6 +20,7 @@ import UserManagement from "./components/Admin/UserManagement";
 import ProductManagement from "./components/Admin/ProductManagement";
 import EditProductPage from "./components/Admin/EditProductPage";
 import OrderManagement from "./components/Admin/OrderManagement";
+import ForgotPassword from "./pages/ForgotPassword";
 
 function App() {
   return (
@@ -31,6 +32,7 @@ function App() {
           <Route path="cart" element={<CartPage />} />
           <Route path="login" element={<Login />} />
           <Route path="register" element={<Register />} />
+          <Route path="forgot_password" element={<ForgotPassword />} />
           <Route path="profile" element={<Profile />} />
           <Route path="collections/:collection" element={<CollectionPage />} />
           <Route path="product/:id" element={<ProductDetails />} />
