@@ -64,7 +64,7 @@ const Navbar = () => {
               // onClick={toggleCartDrawer}
               >
                 <HiOutlineShoppingBag className="w-6 h-6 text-gray-700" />
-                <span className="absolute -top-1 bg-red-600 text-white text-xs rounded-full px-2 py-0.5">4</span>
+                <span className="absolute -top-2 left-3 bg-red-600 text-white text-xs rounded-full px-1.5 py-0.5">4</span>
               </Link>
                {/* Search Icon */}
             <SearchBar/>

@@ -10,7 +10,7 @@ const ForgotPassword = () => {
 
     const handleNewPasswordSubmit = (e) =>{
         e.preventDefault();
-        console.log("User Registered", {name, email, password})
+        console.log("User Registered", {email, password, confirmPassword})
       }
     
 

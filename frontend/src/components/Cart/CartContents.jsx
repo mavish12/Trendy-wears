@@ -23,10 +23,46 @@ const CartContents = () => {
       price: 45,
       image: "https://picsum.photos/200?random=2",
     },
+    {
+      productId: 3,
+      name: "Jeans",
+      size: "L",
+      color: "Blue",
+      quantity: 1,
+      price: 45,
+      image: "https://picsum.photos/200?random=3",
+    },
+    {
+      productId: 4,
+      name: "Jeans",
+      size: "L",
+      color: "Blue",
+      quantity: 1,
+      price: 45,
+      image: "https://picsum.photos/200?random=4",
+    },
+    {
+      productId: 5,
+      name: "Jeans",
+      size: "L",
+      color: "Blue",
+      quantity: 1,
+      price: 45,
+      image: "https://picsum.photos/200?random=5",
+    },
+    {
+      productId: 6,
+      name: "Jeans",
+      size: "L",
+      color: "Blue",
+      quantity: 1,
+      price: 45,
+      image: "https://picsum.photos/200?random=6",
+    },
   ]);
 
   return (
-    <div className="w-full h-full px-2 sm:px-4 md:px-6 overflow-y-auto">
+    <div className="w-full px-2 sm:px-4 md:px-6 overflow-y-auto">
       {cartProducts.map((product, index) => (
         <div
           key={index}
