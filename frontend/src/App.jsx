@@ -21,6 +21,7 @@ import ProductManagement from "./components/Admin/ProductManagement";
 import EditProductPage from "./components/Admin/EditProductPage";
 import OrderManagement from "./components/Admin/OrderManagement";
 import ForgotPassword from "./pages/ForgotPassword";
+import ProfileLayout from "./components/Profile/ProfileLayout";
 
 function App() {
   return (
@@ -34,6 +35,9 @@ function App() {
           <Route path="register" element={<Register />} />
           <Route path="forgot_password" element={<ForgotPassword />} />
           <Route path="profile" element={<Profile />} />
+          
+          <Route path="profile_layout" element={<ProfileLayout />} />  {/* Just for checking purpose and will be changed Properly*/}
+
           <Route path="collections/:collection" element={<CollectionPage />} />
           <Route path="product/:id" element={<ProductDetails />} />
           <Route path="checkout" element={<Checkout />} />
