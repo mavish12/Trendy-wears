@@ -22,6 +22,7 @@ import EditProductPage from "./components/Admin/EditProductPage";
 import OrderManagement from "./components/Admin/OrderManagement";
 import ForgotPassword from "./pages/ForgotPassword";
 import ProfileLayout from "./components/Profile/ProfileLayout";
+import AllAddresses from "./components/Profile/AllAddresses";
 
 function App() {
   return (
@@ -34,9 +35,15 @@ function App() {
           <Route path="login" element={<Login />} />
           <Route path="register" element={<Register />} />
           <Route path="forgot_password" element={<ForgotPassword />} />
-          <Route path="profile" element={<Profile />} />
+          {/* <Route path="profile" element={<Profile />} />
           
-          <Route path="profile_layout" element={<ProfileLayout />} />  {/* Just for checking purpose and will be changed Properly*/}
+          <Route path="profile_layout" element={<ProfileLayout />} />   */}
+
+          {/* Profile Section with Nested Routes */}
+          <Route path="profile_layout" element={<ProfileLayout />}>
+            <Route index element={<Profile />} /> {/* Default route */}
+            <Route path="address" element={<AllAddresses />} />
+          </Route>  
 
           <Route path="collections/:collection" element={<CollectionPage />} />
           <Route path="product/:id" element={<ProductDetails />} />
