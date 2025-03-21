@@ -12,18 +12,24 @@ const ProfileLayout = () => {
 const location = useLocation(); 
 
   return (
-    <div className="flex md:flex-row flex-col gap-4 mx-40">
+    <div className="flex md:flex-row flex-col gap-4 mx-40 py-10">
       {/* Left side Options */}
-      <div className="lg:w-3/12 shadow-lg h-fit">
-        <div className="flex justify-start items-center gap-3 pb-6 border-b-2 border-b-gray-300 p-4">
+      <div className="lg:w-3/12 shadow-lg h-fit rounded-lg"
+        style={{
+            boxShadow:
+              "1px -1px 10px 0px #B1C2F4 inset, -1px 3px 9px 0px #C8DBED inset",
+          }}
+      >
+        <div className="flex justify-start items-stretch gap-3 pb-6 border-b-2 border-b-gray-300 p-4">
           <img
             src="https://picsum.photos/200?random=20"
             alt=""
-            className="w-12 h-12 rounded-lg"
+            className="w-20 h-20 rounded-lg"
           />
           <div className="">
             <p className="text-xs">Hello,</p>
             <h4 className="text-lg font-bold">Shivam Lodh</h4>
+            <p className="text-xs pt-5">Happy Shopping 💕</p>
           </div>
         </div>
 
@@ -67,8 +73,8 @@ const location = useLocation();
             </Link>
           </div>
         </div>
-        <div>
-          <div className="flex justify-between items-center px-4 py-4 border-b-2 border-b-gray-300 bg-red-500">
+        
+          <div className="flex justify-between items-center px-4 py-4 border-b-2 border-b-gray-300 bg-red-500 m-2">
             <div className="flex items-center justify-start gap-6 ">
               <FaUserAlt className="text-xl" />
               <h3 className="uppercase text-lg font-bold tracking-tight">
@@ -77,10 +83,10 @@ const location = useLocation();
             </div>
             <MdLogout className="text-2xl" />
           </div>
-        </div>
+        
       </div>
       {/* Right side Detail Pages through Outlet */}
-      <div className="lg:w-9/12 border">
+      <div className="lg:w-9/12 ">
         <Outlet/>
       </div>
     </div>

@@ -57,7 +57,7 @@ const Navbar = () => {
             {/* Right-side Icons */}
             <div className="flex items-center space-x-4">
               <Link to="/admin" className="block px-2 py-1 rounded text-sm bg-black/80 text-white">Admin</Link>
-              <Link to="/profile" className="hover:text-black">
+              <Link to="/profile_layout" className="hover:text-black">
                 <FaRegUser className="w-6 h-6 text-gray-700" />
               </Link>
               <Link to="/cart" className="relative hover:text-black" 

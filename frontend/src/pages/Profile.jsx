@@ -1,34 +1,199 @@
-import React from "react";
-import MyOrderPage from "./MyOrderPage";
-import { MdLogout } from "react-icons/md";
+import React, { useState } from "react";
+import uploadCloud from "../assets/cloud_upload.jpg"; // Default image if no upload
 
 const Profile = () => {
+  const [formData, setFormData] = useState({
+    firstName: "Shivam",
+    lastName: "Lodh",
+    email: "slodh079@gmail.com",
+    phone: "6000688815",
+    altPhone: "8721850345",
+    role: "customer",
+    birthDate: "2002-10-15",
+    gender: "noPreference",
+    image: null, // Store uploaded image URL
+  });
+
+  // Handle Input Changes
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  // Handle Image Upload
+  const handleImageChange = (e) => {
+    const file = e.target.files[0];
+    if (file) {
+      const imageURL = URL.createObjectURL(file);
+      setFormData({ ...formData, image: imageURL });
+    }
+  };
+
+  // Handle Form Submission
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log(formData);
+    setFormData({
+      firstName: "",
+      lastName: "",
+      email: "",
+      phone: "",
+      altPhone: "",
+      role: "customer",
+      birthDate: "",
+      gender: "noPreference",
+      image: null, // Reset image
+    });
+  };
+
   return (
-    <div className="min-h-screen">
-      <div className="mx-auto py-4 px-1 md:px-5 lg:px-10 ">
-        <div className="">
-          {/* Left section User Details Display */}
-          <div className="w-full flex justify-between shadow-[0_2px_16px_rgba(0,0,0,0.2)] rounded-lg px-3 md:px-10 py-2 md:py-4">
-            <div>
-              <h1 className="text-xl md:text-2xl lg:text-3xl font-bold mb-1">
-                Shivam Lodh
-              </h1>
-              <p className="text-md md:text-lg lg:text-xl text-gray-600">
-                slodh079@gmail.com
-              </p>
-            </div>
-            <div className="flex items-center">
-              <button className="flex items-center gap-5 font-bold bg-red-500 text-white rounded px-3 md:px-8 py-3 text-sm md:text-base hover:bg-red-600">
-                <span className="hidden md:block">Logout</span>
-                <MdLogout className="text-lg md:text-2xl" />
-              </button>
-            </div>
+    <div className="w-full mx-auto p-6 shadow-lg rounded-lg" 
+    style={{
+      boxShadow:
+        "1px -1px 10px 0px #B1C2F4 inset, -1px 3px 9px 0px #C8DBED inset",
+    }}
+    >
+      <h2 className="text-2xl font-bold mb-2">Your Personal Information</h2>
+      {/* Form */}
+      <div className="p-1 lg:py-4 md:p-2 rounded-lg mb-6">
+        <form
+          onSubmit={handleSubmit}
+          className="grid grid-cols-1 md:grid-cols-2 lg:gap-x-15 md:gap-x-5"
+        >
+          {/* First Name */}
+          <div className="mb-4">
+            <label className="block text-gray-700">First Name</label>
+            <input
+              type="text"
+              name="firstName"
+              value={formData.firstName}
+              onChange={handleChange}
+              className="w-full p-2 border rounded"
+              required
+            />
           </div>
-          {/* Orders Table */}
-          <div className="w-full ">
-            <MyOrderPage />
+
+          {/* Last Name */}
+          <div className="mb-4">
+            <label className="block text-gray-700">Last Name</label>
+            <input
+              type="text"
+              name="lastName"
+              value={formData.lastName}
+              onChange={handleChange}
+              className="w-full p-2 border rounded"
+              required
+            />
           </div>
-        </div>
+
+          {/* Email */}
+          <div className="mb-4">
+            <label className="block text-gray-700">E-mail</label>
+            <input
+              type="email"
+              name="email"
+              value={formData.email}
+              onChange={handleChange}
+              className="w-full p-2 border rounded"
+              required
+            />
+          </div>
+
+          {/* Phone */}
+          <div className="mb-4">
+            <label className="block text-gray-700">Phone</label>
+            <input
+              type="tel"
+              name="phone"
+              value={formData.phone}
+              onChange={handleChange}
+              className="w-full p-2 border rounded"
+              required
+            />
+          </div>
+
+          {/* Alternative Phone */}
+          <div className="mb-4">
+            <label className="block text-gray-700">Alternative Phone</label>
+            <input
+              type="tel"
+              name="altPhone"
+              value={formData.altPhone}
+              onChange={handleChange}
+              className="w-full p-2 border rounded"
+            />
+          </div>
+
+          {/* Role */}
+          <div className="mb-4">
+            <label className="block text-gray-700">Role</label>
+            <input
+              type="text"
+              name="role"
+              value={formData.role}
+              onChange={handleChange}
+              className="w-full p-2 border rounded"
+              required
+            />
+          </div>
+
+          {/* Date of Birth */}
+          <div className="mb-4">
+            <label className="block text-gray-700">Date of Birth</label>
+            <input
+              type="date"
+              name="birthDate"
+              value={formData.birthDate}
+              onChange={handleChange}
+              className="w-full p-2 border rounded text-gray-700 appearance-none focus:outline-none"
+            />
+          </div>
+
+          {/* Gender */}
+          <div className="mb-4">
+            <label className="block text-gray-700">Gender</label>
+            <select
+              name="gender"
+              value={formData.gender}
+              onChange={handleChange}
+              className="w-full p-2.5 border rounded"
+            >
+              <option value="noPreference">Prefer not to say</option>
+              <option value="male">Male</option>
+              <option value="female">Female</option>
+            </select>
+          </div>
+
+          {/* Image Upload */}
+          <div>
+          <p className="block text-gray-700">Profile Upload</p>
+          <div className="w-32 h-32 border-2 border-gray-300 rounded-lg flex items-center justify-center overflow-hidden cursor-pointer">
+            
+            <label htmlFor="imageUpload" className="w-full h-full flex items-center justify-center">
+              {formData.image ? (
+                <img src={formData.image} alt="User" className="w-full h-full object-cover" />
+              ) : (
+                <img src={uploadCloud} alt="Default" className="w-full h-full" />
+              )}
+              <input
+                type="file"
+                id="imageUpload"
+                accept="image/*"
+                onChange={handleImageChange}
+                className="hidden"
+              />
+            </label>
+          </div>
+          </div>
+          {/* Submit Button */}
+          <div className="col-span-1 md:col-span-2 flex justify-center">
+            <button
+              type="submit"
+              className="py-2 px-18 md:px-20 rounded bg-green-500 hover:bg-green-600 text-white cursor-pointer"
+            >
+              Add User
+            </button>
+          </div>
+        </form>
       </div>
     </div>
   );
