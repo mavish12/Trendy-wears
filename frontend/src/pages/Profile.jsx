@@ -67,7 +67,11 @@ const Profile = () => {
               name="firstName"
               value={formData.firstName}
               onChange={handleChange}
-              className="w-full p-2 border rounded"
+              className="w-full p-2  rounded"
+              style={{
+                boxShadow:
+                  "1px -1px 10px 0px #B1C2F4 inset, -1px 3px 9px 0px #C8DBED inset",
+              }}
               required
             />
           </div>
@@ -80,7 +84,11 @@ const Profile = () => {
               name="lastName"
               value={formData.lastName}
               onChange={handleChange}
-              className="w-full p-2 border rounded"
+              className="w-full p-2  rounded"
+              style={{
+                boxShadow:
+                  "1px -1px 10px 0px #B1C2F4 inset, -1px 3px 9px 0px #C8DBED inset",
+              }}
               required
             />
           </div>
@@ -93,7 +101,11 @@ const Profile = () => {
               name="email"
               value={formData.email}
               onChange={handleChange}
-              className="w-full p-2 border rounded"
+              className="w-full p-2  rounded"
+              style={{
+                boxShadow:
+                  "1px -1px 10px 0px #B1C2F4 inset, -1px 3px 9px 0px #C8DBED inset",
+              }}
               required
             />
           </div>
@@ -106,7 +118,11 @@ const Profile = () => {
               name="phone"
               value={formData.phone}
               onChange={handleChange}
-              className="w-full p-2 border rounded"
+              className="w-full p-2  rounded"
+              style={{
+                boxShadow:
+                  "1px -1px 10px 0px #B1C2F4 inset, -1px 3px 9px 0px #C8DBED inset",
+              }}
               required
             />
           </div>
@@ -119,7 +135,11 @@ const Profile = () => {
               name="altPhone"
               value={formData.altPhone}
               onChange={handleChange}
-              className="w-full p-2 border rounded"
+              className="w-full p-2  rounded"
+              style={{
+                boxShadow:
+                  "1px -1px 10px 0px #B1C2F4 inset, -1px 3px 9px 0px #C8DBED inset",
+              }}
             />
           </div>
 
@@ -131,7 +151,11 @@ const Profile = () => {
               name="role"
               value={formData.role}
               onChange={handleChange}
-              className="w-full p-2 border rounded"
+              className="w-full p-2  rounded"
+              style={{
+                boxShadow:
+                  "1px -1px 10px 0px #B1C2F4 inset, -1px 3px 9px 0px #C8DBED inset",
+              }}
               required
             />
           </div>
@@ -144,7 +168,11 @@ const Profile = () => {
               name="birthDate"
               value={formData.birthDate}
               onChange={handleChange}
-              className="w-full p-2 border rounded text-gray-700 appearance-none focus:outline-none"
+              className="w-full p-2  rounded text-gray-700 appearance-none focus:outline-none"
+              style={{
+                boxShadow:
+                  "1px -1px 10px 0px #B1C2F4 inset, -1px 3px 9px 0px #C8DBED inset",
+              }}
             />
           </div>
 
@@ -155,7 +183,11 @@ const Profile = () => {
               name="gender"
               value={formData.gender}
               onChange={handleChange}
-              className="w-full p-2.5 border rounded"
+              className="w-full p-2.5  rounded"
+              style={{
+                boxShadow:
+                  "1px -1px 10px 0px #B1C2F4 inset, -1px 3px 9px 0px #C8DBED inset",
+              }}
             >
               <option value="noPreference">Prefer not to say</option>
               <option value="male">Male</option>

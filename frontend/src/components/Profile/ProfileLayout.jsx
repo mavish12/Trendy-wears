@@ -74,7 +74,11 @@ const location = useLocation();
           </div>
         </div>
         
-          <div className="flex justify-between items-center px-4 py-4 border-b-2 border-b-gray-300 bg-red-500 m-2">
+          <div className="flex justify-between items-center px-4 py-4 border-b-2 border-b-gray-300 bg-red-500 m-2  rounded-lg"
+          style={{
+            boxShadow:
+              "1px -1px 10px 0px #8B0000 inset, -1px 3px 9px 0px #8B0000 inset",
+          }}>
             <div className="flex items-center justify-start gap-6 ">
               <FaUserAlt className="text-xl" />
               <h3 className="uppercase text-lg font-bold tracking-tight">

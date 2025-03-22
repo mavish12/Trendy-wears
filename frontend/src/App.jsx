@@ -1,5 +1,5 @@
 // src/App.jsx
-import React from "react";
+import React, { useState } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import UserLayout from "./components/Layout/UserLayout";
 import Home from "./pages/Home";
@@ -25,6 +25,19 @@ import ProfileLayout from "./components/Profile/ProfileLayout";
 import AllAddresses from "./components/Profile/AllAddresses";
 
 function App() {
+
+  const [shippingAddress, setShippingAddress] = useState({
+    firstName: "",
+    lastName: "",
+    address: "",
+    landmark: "",
+    city: "",
+    postalCode: "",
+    country: "",
+    phone: "",
+  });
+  const [savedAddresses, setSavedAddresses] = useState([]);
+
   return (
     <BrowserRouter>
       <Toaster position="top-right" />
@@ -42,12 +55,12 @@ function App() {
           {/* Profile Section with Nested Routes */}
           <Route path="profile_layout" element={<ProfileLayout />}>
             <Route index element={<Profile />} /> {/* Default route */}
-            <Route path="address" element={<AllAddresses />} />
+            <Route path="address" element={<AllAddresses shippingAddress={shippingAddress} setShippingAddress={setShippingAddress} savedAddresses={savedAddresses} setSavedAddresses={setSavedAddresses}/>} />
           </Route>  
 
           <Route path="collections/:collection" element={<CollectionPage />} />
           <Route path="product/:id" element={<ProductDetails />} />
-          <Route path="checkout" element={<Checkout />} />
+          <Route path="checkout" element={<Checkout shippingAddress={shippingAddress} setShippingAddress={setShippingAddress} savedAddresses={savedAddresses} setSavedAddresses={setSavedAddresses}/>} />
           <Route path="order-confirmation" element={<OrderConfirmationPage />}/>
           <Route path="order/:id" element={<OrderDetailsPage />} />
           <Route path="my-orders" element={<MyOrderPage />} />
