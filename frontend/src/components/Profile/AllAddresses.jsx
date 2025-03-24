@@ -20,7 +20,7 @@ const AllAddresses = ({ shippingAddress, setShippingAddress, savedAddresses, set
             setSavedAddresses((prevAddresses) => [...prevAddresses, shippingAddress]);
             console.log("All Saved Addresses:", savedAddresses);
           }
-          setAddressField(false);
+        setAddressField(false);
     }
 
     const handleCancel = () => {

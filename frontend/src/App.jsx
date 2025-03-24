@@ -32,11 +32,16 @@ function App() {
     address: "",
     landmark: "",
     city: "",
+    state:"",
     postalCode: "",
     country: "",
     phone: "",
+    altPhone: "",
+    addressType:""
   });
   const [savedAddresses, setSavedAddresses] = useState([]);
+
+
 
   return (
     <BrowserRouter>
