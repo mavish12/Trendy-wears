@@ -2,8 +2,14 @@ import React, { useEffect, useState } from "react";
 import AddressForm from "../../AddressForm";
 import { FaPlus } from "react-icons/fa";
 import SavedAddress from "../Common/SavedAdresses";
+import { useLocation } from "react-router-dom";
+import SelectAddress from "../Common/SelectAddress";
 
 const AllAddresses = ({ shippingAddress, setShippingAddress, savedAddresses, setSavedAddresses }) => {
+
+    // const location = useLocation();
+    // const isCheckoutPage = location.pathname === "/checkout"
+    // console.log("Current Path:", location.pathname); 
 
     const [addressField , setAddressField] = useState(false);
     // const [savedAddresses, setSavedAddresses] = useState([]);
@@ -60,6 +66,11 @@ const AllAddresses = ({ shippingAddress, setShippingAddress, savedAddresses, set
      )}
      {/* Saved Addresses */}
      <SavedAddress savedAddresses={savedAddresses} setShippingAddress={setShippingAddress} />
+     {/* {location.pathname === "/checkout" ? (
+        <SelectAddress savedAddresses={savedAddresses} setShippingAddress={setShippingAddress}/>
+     ) : (
+     <SavedAddress savedAddresses={savedAddresses} setShippingAddress={setShippingAddress} />
+     )} */}
     </div>
   );
 };

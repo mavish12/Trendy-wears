@@ -63,7 +63,7 @@ import SavedAddress from "../Common/SavedAdresses";
 }
 
 const handleCancel = () => {
-    setAddressField(false); // Collapse form without saving
+  setAddNewAddress(false); // Collapse form without saving
   };
 
   useEffect(() => {
@@ -74,6 +74,8 @@ const handleCancel = () => {
       console.log("Payment Successful", details)
       navigate("/order-confirmation")
     }
+//     console.log("AllAddresses mounted");
+// console.log("Current Path:", location.pathname); 
 
     return (
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-7xl mx-auto py-10 px-6 tracking-tight">

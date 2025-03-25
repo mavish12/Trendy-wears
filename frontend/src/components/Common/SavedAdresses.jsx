@@ -2,9 +2,9 @@ import React from "react";
 import { CgMoreVertical } from "react-icons/cg";
 
 const SavedAddress = ({ savedAddresses, setShippingAddress }) => {
-  const handleSelectAddress = (address) => {
-    setShippingAddress(address); // Updates the selected address
-  };
+//   const handleSelectAddress = (address) => {
+//     setShippingAddress(address); // Updates the selected address
+//   };
 
   return (
     <div
@@ -16,8 +16,8 @@ const SavedAddress = ({ savedAddresses, setShippingAddress }) => {
     >
       {savedAddresses.length > 0 ? (
         savedAddresses.map((address, index) => (
-          <div className="flex justify-between border-b border-b-gray-300 px-5 py-5">
-            <div key={index} className="w-9/12">
+          <div key={index}  className="flex justify-between border-b border-b-gray-300 px-5 py-5">
+            <div className="w-9/12">
               <p className="bg-gray-300 text-xs px-5 py-1 w-fit uppercase tracking-tighter rounded text-gray-600">
                 {address.addressType}
               </p>
@@ -36,12 +36,12 @@ const SavedAddress = ({ savedAddresses, setShippingAddress }) => {
                 <strong>{address.postalCode}</strong>{" "}
               </p>
               <p>{address.country}</p>
-              <button
+              {/* <button
                 className="mt-2 bg-blue-500 text-white px-3 py-1 rounded"
                 onClick={() => handleSelectAddress(address)}
               >
                 Use This Address
-              </button>
+              </button> */}
             </div>
             <div>
               <CgMoreVertical className="cursor-pointer"/>

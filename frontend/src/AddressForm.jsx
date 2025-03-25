@@ -6,6 +6,15 @@ const AddressForm = ({
   onSave,
   onCancel,
 }) => {
+
+  const countries = ["India", "USA", "Canada", "UK", "Germany"];
+  const states = {
+    India: ["Assam", "Delhi", "Maharashtra"],
+    USA: ["California", "Texas", "New York"],
+    Canada: ["Ontario", "Quebec", "British Columbia"]
+  };
+  const addressTypes = ["Home", "Work", "Other"];
+
   return (
     <div>
       <h3 className="text-lg mb-4">Delivery</h3>
@@ -43,25 +52,25 @@ const AddressForm = ({
             placeholder="Last Name"
           />
         </div>
-        </div>
-        {/* Address */}
-        <div className="mb-4">
-          <label className="block text-gray-700">Address</label>
-          <textarea
-            type="text"
-            value={shippingAddress.address}
-            onChange={(e) =>
-              setShippingAddress({
-                ...shippingAddress,
-                address: e.target.value,
-              })
-            }
-            className="block w-full p-2 border rounded"
-            placeholder="Full Address"
-            required
-          />
-        </div>
-        <div className="grid grid-cols-2 gap-x-4">
+      </div>
+      {/* Address */}
+      <div className="mb-4">
+        <label className="block text-gray-700">Address</label>
+        <textarea
+          type="text"
+          value={shippingAddress.address}
+          onChange={(e) =>
+            setShippingAddress({
+              ...shippingAddress,
+              address: e.target.value,
+            })
+          }
+          className="block w-full p-2 border rounded"
+          placeholder="Full Address"
+          required
+        />
+      </div>
+      <div className="grid grid-cols-2 gap-x-4">
         {/* City and Postal code */}
         <div>
           <label className="block text-gray-700">City</label>
@@ -96,8 +105,7 @@ const AddressForm = ({
         {/* Country */}
         <div className="mb-4">
           <label className="block text-gray-700">Country</label>
-          <input
-            type="text"
+          <select
             value={shippingAddress.country}
             onChange={(e) =>
               setShippingAddress({
@@ -106,15 +114,18 @@ const AddressForm = ({
               })
             }
             className="block w-full p-2 border rounded"
-            placeholder="Country"
             required
-          />
+          >
+            <option value="">Select Country</option>
+            {countries.map((country)=>(
+            <option key={country} value={country}>{country}</option>
+            ))}            
+          </select>
         </div>
         {/* State */}
         <div className="mb-4">
           <label className="block text-gray-700">State</label>
-          <input
-            type="text"
+          <select
             value={shippingAddress.state}
             onChange={(e) =>
               setShippingAddress({
@@ -123,9 +134,13 @@ const AddressForm = ({
               })
             }
             className="block w-full p-2 border rounded"
-            placeholder="State"
             required
-          />
+          >
+            <option value="">Select State</option>
+            {shippingAddress.country && states[shippingAddress.country]?.map((state)=>(
+              <option key={state} value={state}>{state}</option>
+            ))}
+          </select>
         </div>
         {/* Landmark */}
         <div className="mb-4">
@@ -176,16 +191,22 @@ const AddressForm = ({
         {/* Address Type */}
         <div className="mb-4">
           <label className="block text-gray-700">Address Type</label>
-          <input
-            type="text"
+          <select
             value={shippingAddress.addressType}
             onChange={(e) =>
-              setShippingAddress({ ...shippingAddress, addressType: e.target.value })
+              setShippingAddress({
+                ...shippingAddress,
+                addressType: e.target.value,
+              })
             }
             className="block w-full p-2 border rounded"
-            placeholder="Phone Number"
             required
-          />
+          >
+            <option value="">Select Address Type</option>
+            {addressTypes.map((type) =>(
+              <option key={type} value={type}>{type}</option>
+            ))}
+          </select>
         </div>
       </div>
       {/* Save & Cancel Buttons */}
