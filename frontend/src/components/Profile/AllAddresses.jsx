@@ -65,7 +65,7 @@ const AllAddresses = ({ shippingAddress, setShippingAddress, savedAddresses, set
             </>
      )}
      {/* Saved Addresses */}
-     <SavedAddress savedAddresses={savedAddresses} setShippingAddress={setShippingAddress} />
+     <SavedAddress savedAddresses={savedAddresses} setSavedAddresses={setSavedAddresses} shippingAddress={shippingAddress} setShippingAddress={setShippingAddress}/>
      {/* {location.pathname === "/checkout" ? (
         <SelectAddress savedAddresses={savedAddresses} setShippingAddress={setShippingAddress}/>
      ) : (

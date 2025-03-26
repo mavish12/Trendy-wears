@@ -39,7 +39,34 @@ function App() {
     altPhone: "",
     addressType:""
   });
-  const [savedAddresses, setSavedAddresses] = useState([]);
+  const [savedAddresses, setSavedAddresses] = useState([
+    {
+      address: "Opposite to railway Quatars, Near Radha Krishna Mandir , Daily Bazzar",
+      addressType: "Home",
+      altPhone: "9878754356",
+      city: "Naharkatia",
+      country: "India",
+      firstName: "Shivam",
+      landmark: "Radha Krishna Mandir",
+      lastName: "Lodh",
+      phone: "0987654321",
+      postalCode: "098765",
+      state: "Assam",
+    },
+    {
+      address: "BTM, 1st Stage, tavarekare Road, Old Madiwal, Gangothri Circle",
+      addressType: "Others",
+      altPhone: "9878754356",
+      city: "Bengaluru",
+      country: "India",
+      firstName: "Shivam",
+      landmark: "Gangothri Bar and Restaurent",
+      lastName: "Lodh",
+      phone: "0987654321",
+      postalCode: "098765",
+      state: "Karnataka",
+    },
+  ]);
 
 
 
